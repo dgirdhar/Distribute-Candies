@@ -2,15 +2,15 @@ class Solution {
 public:
     int distributeCandies(vector<int>& candyType) {
         int ret = 0;
-        set<int> tempSet;
+        unordered_map<int, int> tempMap;
         
         for (int i = 0; i < candyType.size(); ++i) {
-            tempSet.insert(candyType[i]);
+            tempMap[candyType[i]] = 1;
         }
         
         int mid = candyType.size() / 2;
         
-        ret = tempSet.size() < mid ? tempSet.size() : mid;
+        ret = tempMap.size() < mid ? tempMap.size() : mid;
         
         return ret;
     }
